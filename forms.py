@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.fields.html5 import URLField
-from wtforms.validators import InputRequired, Optional, AnyOf, NumberRange, DataRequired
+from wtforms.validators import InputRequired, AnyOf, NumberRange
 
 
 class LuckyForm(FlaskForm):
@@ -13,9 +12,3 @@ class LuckyForm(FlaskForm):
     email = StringField('Email', validators=[InputRequired(message='This field is required')])
     color = StringField('Color', validators=[
                         InputRequired(message='Invalid value. Color must be one of "red", "green", "orange", "blue"'), AnyOf(['red', 'blue', 'green', 'orange'])])
-
-
-# 'name': '',
-#         'email': 'This field is required',
-#         'year': 'Invalid value. Year must be between 1900 and 2000',
-#         'color': 'Invalid value. Color must be one of "red", "green", "orange", "blue"'

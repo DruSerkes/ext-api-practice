@@ -28,11 +28,8 @@ def get_lucky_num():
     form = LuckyForm(data=data)
     if not form.validate():
         return jsonify(errors=form.errors)
-        # errors = check_for_errors(data)
-        # if errors:
-        #     return jsonify(errors=errors)
 
-        # Generate response
+    # Generate response
     lucky_num = randint(0, 100)
     num_response = requests.get(f'{BASE_URL}/{lucky_num}')
     year_response = requests.get(f"{BASE_URL}/{data['year']}/year")

@@ -19,6 +19,7 @@ async function processForm(evt) {
 			color
 		})
 	);
+
 	handleResponse(resp);
 }
 

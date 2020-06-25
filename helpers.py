@@ -2,6 +2,10 @@ from flask import request
 
 
 def get_data():
+    """
+    Returns a python dict with name, email, year, and color from data in a JSON request. 
+    Sets attributes to None if not found in JSON.   
+    """
     return {
         'name': request.json.get('name', None),
         'email': request.json.get('email', None),
@@ -11,17 +15,22 @@ def get_data():
 
 
 def make_response(num_response, year_response, lucky_num, data):
-    return {
-        'num': {
-            'fact': num_response.text,
-            'num': lucky_num
-        },
-        'year': {
-            'fact': year_response.text,
-            'year': data['year']
+    """
+    Generates a python dict response from the data given
+    """
+    try:
+        return {
+            'num': {
+                'fact': num_response.text,
+                'num': lucky_num
+            },
+            'year': {
+                'fact': year_response.text,
+                'year': data['year']
+            }
         }
-    }
-
+    except:
+        return "There was an error - make sure your data is formatted correctly, then try again."
 
 def check_for_errors(data):
     """ 
