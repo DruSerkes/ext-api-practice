@@ -17,7 +17,7 @@ pylint==2.5.3
 requests==2.24.0
 six==1.15.0
 toml==0.10.1
-urllib3==1.25.9
+urllib3==1.26.5
 Werkzeug==2.2.3
 wrapt==1.12.1
 WTForms==2.3.1
